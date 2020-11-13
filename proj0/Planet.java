@@ -59,4 +59,47 @@ public class Planet {
         double distance = calcDistance(otherPlanet);
         return calcForceExertedBy(otherPlanet) * dy / distance;
     }
+
+    public double calcNetForceExertedByX(Planet[] planets) {
+        double sum = 0;
+        for (Planet planet : planets) {
+            /* don't calc the forces exerted by itself */
+            if (this.equals(planet)) {
+                continue;
+            }
+            sum += calcForceExertedByX(planet);
+        }
+        return sum;
+    }
+
+    public double calcNetForceExertedByY(Planet[] planets) {
+        double sum = 0;
+        for (Planet planet : planets) {
+            /* don't calc the forces exerted by itself */
+            if (this.equals(planet)) {
+                continue;
+            }
+            sum += calcForceExertedByY(planet);
+        }
+        return sum;
+    }
+
+    /**
+     * A method that determines how much the forces exerted on the planet will cause that planet to accelerate, and the
+     * resulting change in the planet’s velocity and position in a small period of time dt. For example,
+     * samh.update(0.005, 10, 3) would adjust the velocity and position if an x-force of 10 Newtons and a y-force of 3
+     * Newtons were applied for 0.005 seconds.
+     * */
+    public void update(double dt, double fX, double fY) {
+        double aX = fX / mass;
+        double aY = fY / mass;
+        xxVel += aX * dt;
+        yyVel += aY * dt;
+        xxPos += xxVel * dt;
+        yyPos += yyVel * dt;
+    }
+
+    public void draw() {
+        StdDraw.picture(xxPos, yyPos, "images/" + imgFileName);
+    }
 }
