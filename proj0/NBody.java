@@ -16,14 +16,14 @@ public class NBody {
         return planets;
     }
 
-    public static void drawBackground(double radius) {
+    private static void drawBackground(double radius) {
         StdDraw.setScale(-radius, radius);
         /* Clears the drawing window. */
         StdDraw.clear();
         StdDraw.picture(0, 0, "images/starfield.jpg");
     }
 
-    public static void drawPlanets(Planet[] planets) {
+    private static void drawPlanets(Planet[] planets) {
         for (Planet planet : planets) {
             planet.draw();
         }
@@ -51,7 +51,7 @@ public class NBody {
             for (int i = 0; i < planets.length; i++) {
                 Planet planet = planets[i];
                 xForces[i] = planet.calcNetForceExertedByX(planets);
-                yForces[i] = planet.calcNetForceExertedByX(planets);
+                yForces[i] = planet.calcNetForceExertedByY(planets);
             }
 
             /*
