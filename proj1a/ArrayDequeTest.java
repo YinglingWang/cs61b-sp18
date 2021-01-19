@@ -1,6 +1,5 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Random;
 
 /** Tests ArrayDeque class */
 public class ArrayDequeTest {
@@ -33,6 +32,7 @@ public class ArrayDequeTest {
         int actual1st = q.get(1);
         assertEquals(0, actual0th);
         assertEquals(1, actual1st);
+        q.printDeque();
     }
 
     /**
@@ -59,6 +59,7 @@ public class ArrayDequeTest {
         int actualLast0 = q.removeLast();
         assertEquals(1, actualLast1);
         assertEquals(0, actualLast0);
+        q.printDeque();
     }
 
     /**
@@ -111,5 +112,4 @@ public class ArrayDequeTest {
             assertEquals(i, removed);
         }
     }
-
 }

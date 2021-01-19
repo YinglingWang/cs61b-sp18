@@ -23,7 +23,8 @@ public class ArrayDeque<T> {
     }
 
     /**
-     * Gets the item at the given index. If no such item exists, returns null. Must not alter the deque!
+     * Gets the item at the given index. If no such item exists, returns null.
+     * Must not alter the deque!
      * Must take constant time.
      */
     public T get(int index) {
@@ -35,7 +36,7 @@ public class ArrayDeque<T> {
 
     /** Prints the items in the deque from first to last, separated by a space. */
     public void printDeque() {
-        for (int i = 0; i < size; i ++) {
+        for (int i = 0; i < size; i++) {
             System.out.print(items[(nextFirst + 1 + i) % items.length] + " ");
         }
         System.out.println();
@@ -118,7 +119,7 @@ public class ArrayDeque<T> {
     }
 
     private int minOne(int index) {
-        return (index -1 + items.length) % items.length;
+        return (index - 1 + items.length) % items.length;
     }
 
     private int plusOne(int index) {

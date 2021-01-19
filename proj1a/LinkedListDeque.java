@@ -3,15 +3,15 @@ public class LinkedListDeque<T> {
     private int size;
 
     private class Node {
-        public T item;
-        public Node preNode;
-        public Node nextNode;
+        private T item;
+        private Node preNode;
+        private Node nextNode;
 
-        public Node(T item) {
+        Node(T item) {
             this.item = item;
         }
 
-        public Node(T item, Node preNode, Node nextNode) {
+        Node(T item, Node preNode, Node nextNode) {
             this.item = item;
             this.preNode = preNode;
             this.nextNode = nextNode;
@@ -27,7 +27,8 @@ public class LinkedListDeque<T> {
     }
 
     /**
-     * Gets the item at the given index. If no such item exists, returns null. Must not alter the deque!
+     * Gets the item at the given index. If no such item exists, returns null.
+     * Must not alter the deque!
      * Must use iteration, not recursion.
      */
     public T get(int index) {
@@ -55,7 +56,7 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return current.item;
         }
-        return getRecursiveHelper(index -1, current.nextNode);
+        return getRecursiveHelper(index - 1, current.nextNode);
     }
 
     /** Returns true if deque is empty, false otherwise. */
